@@ -1,0 +1,7 @@
+body { background-color: #f3f4f6; }
+    .sidebar { width: 240px; background-color: #7a0000; color: white; min-height: 100vh; position: fixed; }
+    .sidebar a { display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; padding: 12px 20px; border-radius: 8px; transition: 0.2s; }
+    .sidebar a:hover, .sidebar a.active { background-color: #a30000; }
+    .main-content { margin-left: 260px; padding: 20px; }
+    .btn-pay { background-color: #28a745; color: white; }
+    .btn-pay:hover { background-color: #218838; }
