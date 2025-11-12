@@ -28,15 +28,15 @@ class ProductoOut(BaseModel):
 
 class CajaOpen(BaseModel):
     id_empleado: int
-    monto_inicial: float
+    monto_inicial: float = Field(..., ge=0) #no se puede abrir caja con saldo negativo
 
 class MovimientoIn(BaseModel):
     id_sesion: int
     tipo_movimiento: str
-    monto: float
+    monto: float = Field(..., ge=0)
     descripcion: str
 
 class CajaClose(BaseModel):
     id_sesion: int
-    monto_contado: float
+    monto_contado: float = Field(..., ge=0)
     comentarios: Optional[str] = None
