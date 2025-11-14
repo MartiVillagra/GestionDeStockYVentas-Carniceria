@@ -41,8 +41,7 @@ def abrir_caja(data: CajaOpen, db: Session = Depends(get_db)):
     
     #crea nueva sesion
     nueva = CajaSesion(
-        **data.dict(),
-        fecha_apertura=datetime.now()
+        **data.dict()
     )
     db.add(nueva)
     db.commit()
@@ -125,7 +124,7 @@ def cerrar_caja(data: CajaClose, db: Session = Depends(get_db)):
 
     #calcular diferencia real 
     diferencia = round(data.monto_contado - monto_esperado, 2)  
-
+    
     #devuelve un resumen del cierre
     return {
         "id_sesion": sesion.id_sesion,

@@ -4,6 +4,7 @@ from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, Tex
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from database import Base
+from datetime import datetime
 
 class Producto(Base):
     __tablename__ = "productos"
@@ -20,7 +21,7 @@ class CajaSesion(Base):
     __tablename__ = "caja_sesion"
     id_sesion = Column(Integer, primary_key=True, index=True)
     id_empleado = Column(Integer, default=1)
-    fecha_apertura = Column(DateTime(timezone=True), server_default=func.now())
+    fecha_apertura = Column(DateTime, default=datetime.now, nullable=False) 
     monto_inicial = Column(Float, nullable=False)
     fecha_cierre = Column(DateTime(timezone=True), nullable=True)
     monto_contado = Column(Float, nullable=True)
